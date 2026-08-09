@@ -38,7 +38,7 @@ jobs:
               terraform init \
                 -backend-config="resource_group_name=day5" \
                 -backend-config="storage_account_name=iinspirabb8787jj" \
-                -backend-config="container_name=tfstate" \
+                -backend-config="container_name=ds256" \
                 -backend-config="key=terraform.tfstate"
 
 
