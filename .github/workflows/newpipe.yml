@@ -45,3 +45,6 @@ jobs:
       # 7. Create Terraform Plan
       - name: Terraform Plan
         run: terraform plan
+      # 8. Create Terraform Plan
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
