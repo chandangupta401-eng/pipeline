@@ -6,10 +6,7 @@ provider "azurerm" {
 }
 
 
-resource "azurerm_resource_group" "RGPipe" {
-  name     = "RG2"
-  location = "CentralIndia"
-}
+
 
 resource "azurerm_virtual_network" "vnet" {
   name                = "virtualnetwork"
