@@ -34,11 +34,11 @@ jobs:
 
       # 5. Initialize Terraform
       - name: Terraform Init
-        run: |
+        run: |  
               terraform init \
-                -backend-config="resource_group_name=day5" \
-                -backend-config="storage_account_name=iinspirabb8787jj" \
-                -backend-config="container_name=ds256" \
+                -backend-config="resource_group_name=RG" \
+                -backend-config="storage_account_name=storagetest10aug26" \
+                -backend-config="container_name=blob" \
                 -backend-config="key=terraform.tfstate"
 
 
@@ -50,6 +50,6 @@ jobs:
       # 7. Create Terraform Plan
       - name: Terraform Plan
         run: terraform plan
-      # 8. Create Terraform Plan
+      # 8. Create Terraform Apply
       - name: Terraform Apply
         run: terraform apply -auto-approve
