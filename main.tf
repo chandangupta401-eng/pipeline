@@ -11,7 +11,7 @@ provider "azurerm" {
 # }
 
 resource "azurerm_resource_group" "RGPipe" {
-  name     = "RG2"
+  name     = "RG3"
   location = "CentralIndia"
 }
 
