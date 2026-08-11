@@ -1,29 +1,16 @@
-
-provider "azurerm" {
-  features {
-    #depends_on = [azurerm_resource_group.RG1]
+variable "rg" {}
+variable "storage" {}
+module "RG" {
+  source = "./moduel/pre/RG"
+  rg     = var.rg
+}
+module "storage" {
+  source = "./moduel/pre/Storage"
+  storage = {
+    name                     = var.storage.name
+    resource_group_name      = module.RG.name
+    location                 = module.RG.location
+    account_tier             = var.storage.account_tier
+    account_replication_type = var.storage.account_replication_type
   }
 }
-
-# resource "azurerm_resource_group" "RGPipe" {
-#   name     = "RG2"
-#   location = "CentralIndia"
-# }
-
-resource "azurerm_resource_group" "RGPipe" {
-  name     = "RG4"
-  location = "CentralIndia"
-}
-# resource "azurerm_virtual_network" "vnet" {
-#   name                = "virtualnetwork"
-#   resource_group_name = azurerm_resource_group.RGPipe.name
-#   location            = azurerm_resource_group.RGPipe.location
-#   address_space       = ["10.0.0.0/16", "192.168.1.0/24"]
-# }
-
-# resource "azurerm_subnet" "sub" {
-#   name                 = "sub"
-#   resource_group_name  = azurerm_resource_group.RGPipe.name
-#   virtual_network_name = azurerm_virtual_network.vnet.name
-#   address_prefixes     = ["10.0.10.0/24"]
-# }
