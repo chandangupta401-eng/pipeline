@@ -14,8 +14,6 @@ resource "azurerm_resource_group" "RGPipe" {
   name     = "RG3"
   location = "CentralIndia"
 }
-
-
 # resource "azurerm_virtual_network" "vnet" {
 #   name                = "virtualnetwork"
 #   resource_group_name = azurerm_resource_group.RGPipe.name
