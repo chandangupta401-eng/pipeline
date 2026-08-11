@@ -11,7 +11,7 @@ provider "azurerm" {
 # }
 
 resource "azurerm_resource_group" "RGPipe" {
-  name     = "RG3"
+  name     = "RG4"
   location = "CentralIndia"
 }
 # resource "azurerm_virtual_network" "vnet" {
