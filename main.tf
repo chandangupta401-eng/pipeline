@@ -16,13 +16,13 @@ module "network" {
     address_space       = var.vnet.address_space
   }
 }
-module  "subnet" {
+module "subnet" {
   source = "./moduel/pre/subnet"
-  subnet  = {
-    name  = var.subnet.name
-    resource_group_name = module.RG.name
+  subnet = {
+    name                 = var.subnet.name
+    resource_group_name  = module.RG.name
     virtual_network_name = module.network.vnet
-    address_prefixes = var.subnet.address_prefixes
-    
+    address_prefixes     = var.subnet.address_prefixes
+
   }
 }
