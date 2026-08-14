@@ -49,8 +49,17 @@ jobs:
 
       # 7. Create Terraform Plan
       - name: Terraform Plan
-        run: terraform plan
-      # 8. Create Terraform Apply
+        run: terraform plan -out=tfplan
+
+      # 8. Upload Terraform Plan Artifact
+      - name: Upload Terraform Plan
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan
+          path: tfplan
+
+      # 9. Apply Terraform Plan
       - name: Terraform Apply
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve
+        run: terraform apply tfplan
+
