@@ -30,35 +30,39 @@ jobs:
       # 3. Install Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
+
+        # 4. Terraform Format Check
+      - name: Terraform Format
+        run: terraform fmt -recursive
         
-      # 4. Terraform Format Check
+      # 5. Terraform Format Check
       - name: Terraform Format
         run: terraform fmt -check
 
 
-      # 5. Initialize Terraform
+      # 6. Initialize Terraform
       - name: Terraform Init
         run: terraform init 
 
 
 
-      # 6. Validate Terraform code
+      # 7. Validate Terraform code
       - name: Terraform Validate
         run: terraform validate
 
 
-      # 7. Create Terraform Plan
+      # 8. Create Terraform Plan
       - name: Terraform Plan
         run: terraform plan -out=tfplan
 
-      # 8. Upload Terraform Plan Artifact
+      # 9. Upload Terraform Plan Artifact
       - name: Upload Terraform Plan
         uses: actions/upload-artifact@v4
         with:
           name: tfplan
           path: tfplan
 
-      # 9. Apply Terraform Plan
+      # 10. Apply Terraform Plan
       - name: Terraform Apply
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: terraform apply tfplan
