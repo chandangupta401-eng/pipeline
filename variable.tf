@@ -1,4 +1,6 @@
-#################Test############
-#############Test2#############
-#change1#
-#change2#
+variable "rg" {}
+variable "storage" {}
+variable "vnet" {}
+variable "subnet" {}
+variable "container" {}
+
