@@ -5,18 +5,18 @@ on:
     branches:
       - feature/branch
       - main
+
   pull_request:
     branches:
-      - main    
+      - main
 
   workflow_dispatch:
 
 jobs:
   terraform:
-    runs-on: [self-hosted, Linux, X64]
+    runs-on: [self-hosted, Windows, X64]
 
     steps:
-
       # 1. Checkout code
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -31,25 +31,21 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-        # 4. Terraform Format Check
-      - name: Terraform Format
+      # 4. Terraform Format
+      - name: Terraform Format Recursive
         run: terraform fmt -recursive
-        
-      # 5. Terraform Format Check
-      - name: Terraform Format
-        run: terraform fmt -check
 
+      # 5. Terraform Format Check
+      - name: Terraform Format Check
+        run: terraform fmt -check
 
       # 6. Initialize Terraform
       - name: Terraform Init
-        run: terraform init 
-
-
+        run: terraform init
 
       # 7. Validate Terraform code
       - name: Terraform Validate
         run: terraform validate
-
 
       # 8. Create Terraform Plan
       - name: Terraform Plan
@@ -65,5 +61,4 @@ jobs:
       # 10. Apply Terraform Plan
       - name: Terraform Apply
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: terraform apply tfplan
-
+        run: terraform apply -auto-approve tfplan
