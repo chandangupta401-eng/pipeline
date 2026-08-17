@@ -41,4 +41,4 @@ module "container" {
     storage_account_name  = module.storage.name
     container_access_type = var.container.container_access_type
   }
-}
+} 
