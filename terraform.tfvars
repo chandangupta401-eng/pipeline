@@ -16,3 +16,7 @@ subnet = {
   name             = "subnet1"
   address_prefixes = ["10.10.10.0/24"]
 }
+container = {
+  name                  = "blobcontainer1"
+  container_access_type = "private"
+}
