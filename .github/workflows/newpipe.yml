@@ -29,7 +29,10 @@ jobs:
 
       # 3. Install Terraform
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
+        uses: hashicorp/setup-terraform@
+        with:
+          terraform_version: 4.79.0
+
 
       # 4. Terraform Format
       - name: Terraform Format Recursive
