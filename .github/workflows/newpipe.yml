@@ -30,8 +30,8 @@ jobs:
       # 3. Install Terraform
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 4.79.0
+        # with:
+        #   terraform_version: 4.79.0
 
 
       # 4. Terraform Format
