@@ -37,7 +37,9 @@ jobs:
       # 4. Terraform Format
       - name: Terraform Format Recursive
         run: terraform fmt -recursive
-
+      # 4. Terraform Format
+      - name: Terraform terraform_version
+        run: terraform --version
       # 5. Terraform Format Check
       - name: Terraform Format Check
         run: terraform fmt -check
