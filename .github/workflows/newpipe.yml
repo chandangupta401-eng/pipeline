@@ -33,7 +33,6 @@ jobs:
         with:
           terraform_version: 4.79.0
 
-
       # 4. Terraform Format
       - name: Terraform Format Recursive
         run: terraform fmt -recursive
