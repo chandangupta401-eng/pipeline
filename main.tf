@@ -3,15 +3,15 @@ module "RG" {
   rg     = var.rg
 }
 
-# module "network" {
-#   source = "./moduel/pre/vnet"
-#   vnet = {
-#     name                = var.vnet.name
-#     resource_group_name = module.RG.name
-#     location            = module.RG.location
-#     address_space       = var.vnet.address_space
-#   }
-# }
+module "network" {
+  source = "./moduel/pre/vnet"
+  vnet = {
+    name                = var.vnet.name
+    resource_group_name = module.RG.name
+    location            = module.RG.location
+    address_space       = var.vnet.address_space
+  }
+}
 
 # module "subnet" {
 #   source = "./moduel/pre/subnet"
